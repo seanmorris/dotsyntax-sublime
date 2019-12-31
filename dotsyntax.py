@@ -1,6 +1,7 @@
 import sublime_plugin
 import sublime
 import os.path
+import fnmatch
 import yaml
 import io
 import re
@@ -45,10 +46,6 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 	
 	def map_file_extension(self, file):
 		
-		*_ ,ext = os.path.splitext(file)
-
-		filename = os.path.basename(file)
-
 		dir  = os.path.dirname(file)
 
 		dot_syntax_file = self.find_dotsyntax_file(dir)
@@ -58,14 +55,26 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 			with open(dot_syntax_file, "r") as handle:
 
 				defs = [i.strip().rpartition(':') for i in handle]
-				match = next((i for i in defs if i[0].strip() in {ext,filename}), None)
-	
+				match = next((i for i in defs if self.filename_match(file,i)), None)
+
 				if not match:
 					return None
 
 				*_, extension = match
 
 				return extension.strip()
+
+	def filename_match(self, file, check):
+
+		filename = os.path.basename(file)
+		*_ ,ext  = os.path.splitext(file)
+		check    = check[0].strip()
+
+		if check in {ext,filename}:
+
+			return True
+
+		return fnmatch.fnmatch(filename, check);
 
 	def find_dotsyntax_file(self, dir):
 
@@ -105,6 +114,7 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 						else:
 
 							extmode = 0
+							break;
 
 					match = re.match('^file_extensions\:', line)
 					

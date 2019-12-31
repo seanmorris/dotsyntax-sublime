@@ -33,7 +33,8 @@ You can open the console with `ctrl ~` on linux or `cmd ~` on osx.
 Create a `.syntax` file in the root of your project and add  keys and values in the form `filename:type` to get started. Leading/Trailing whitespace will be trimmed for the value. Upon saving, sublime will immediately begin to use whatever syntax highlighter it would normally use for the aliased file extension.
 
 ```yaml
-.env: .sh
+.env:    .sh
+.env.*:  .sh
 .syntax: .yml
 ```
 

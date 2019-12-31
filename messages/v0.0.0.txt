@@ -1,0 +1,11 @@
+Version Zero. And on the last day of 2019!
+
+The script just ascends the directory tree lookign for a .syntax file.
+
+If it finds one, it applies one simple rule: if the filename or extension is an exact match for the value on the left side of the colon, sublime will pretend it has the extension from the right side of the colon. I hope to god it never ends up needing to do more than that. 
+
+I'm amazed nothing like this exists already.
+
+Happy New Year!
+
+--Sean Morris

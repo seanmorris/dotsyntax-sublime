@@ -1,2 +1,2 @@
-.syntax: .yaml
-.env:    .bash
+.env: .sh
+.syntax: .yml

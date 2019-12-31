@@ -1,12 +1,9 @@
-import os.path
-import sublime
 import sublime_plugin
+import sublime
+import os.path
 import yaml
 import io
 import re
-import pprint
-
-yaml.add_multi_constructor('tag:yaml.org,2002:value', lambda loader, suffix, node: None)
 
 class DotSyntaxCommand(sublime_plugin.EventListener):
 
@@ -22,14 +19,18 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 
 	def set_syntax(self, view):
 
-		for _view in view.window().views():
+		file  = os.path.basename(view.file_name());
+
+		views = [view];
+
+		if file == '.syntax':
+			views = view.window().views()
+
+		for _view in views:
 			file        = _view.file_name();
+			print('Refreshing ' + file)
 			mapped_ext  = self.map_file_extension(file)
 			syntax_file = self.lookup_syntax_file(mapped_ext)
-
-			print(mapped_ext)
-			print(syntax_file)
-
 			_view.settings().set('syntax', syntax_file)
 
 	def lookup_syntax_file(self, extension):

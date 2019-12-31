@@ -4,7 +4,7 @@
 
 *Highlight dotfiles your way.*
 
-![seanmorris-dotsyntax](https://img.shields.io/badge/seanmorris-dotsyntax-900?style=for-the-badge) ![Size badge](https://img.shields.io/github/languages/code-size/seanmorris/dotsyntax-sumblime?style=for-the-badge)
+![seanmorris-dotsyntax](https://img.shields.io/badge/seanmorris-dotsyntax-900?style=for-the-badge) ![Size badge](https://img.shields.io/github/repo-size/seanmorris/dotsyntax-sublime?color=F80&style=for-the-badge)
 
 I'm tired of having to deal with a lack of syntax highlighting when creating a custom dotfile. Even worse, I cannot stand having to configure each and every editor on each and every machine before I can get back to just writing code.
 

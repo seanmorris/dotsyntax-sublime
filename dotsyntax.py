@@ -72,7 +72,7 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 
 				extension = extension.strip()
 
-				print("\tmatched " + extension)
+				print("\t syntax " + extension)
 
 				return extension.strip()
 

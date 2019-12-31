@@ -10,7 +10,7 @@ I'm tired of having to deal with a lack of syntax highlighting when creating a c
 
 This plugin changes all that. Simply place a `.syntax` file in the root of any project and sublime will automatically use it to highlight the files in that project the rules you define.
 
-Theres a version in the works for Eclipse.
+I'm amazed nothing like this exists already.
 
 A syntaxfile is simple a `key:value` map, where the keys are filenames or extensions to act on, and the values are the file types that you want to use. For example, the syntaxfile below will cause`.syntax` to be highlighted as if it were a `.yml` file, and the .env file to be renderd like bash.
 
@@ -18,7 +18,12 @@ A syntaxfile is simple a `key:value` map, where the keys are filenames or extens
 
 As far as I know, I havent been accepted to package control yet. That leaves us with the manual install path as our only option. Open sublime and go to `tools > browse packages` and you'll get file explorer of your current OS and time period. Note the directory.
 
-Once you've done that, head over to the [https://github.com/seanmorris/dotsyntax-sublime/releases](releases) page and grab the lastest one. Extract that file into the directory from before, under a folder named dotsyntax.
+Once you've done that, head over to the [https://github.com/seanmorris/dotsyntax-sublime/releases](releases) page and grab the lastest one. Extract that file into the directory from before, under a folder named `dotsyntax`. (Make sure your archive manager doesn't end up creating a subfolder with the same name)
+
+When you've done the above correctly, you should now see this on your sublime console when saving/loading a file:
+
+```
+```
 
 ## Usage:
 

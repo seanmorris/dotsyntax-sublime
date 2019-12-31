@@ -16,7 +16,7 @@ A syntaxfile is simple a `key:value` map, where the keys are filenames or extens
 
 ## Installation
 
-As far as I know, I havent been accepted to package control yet. That leaves us with the manual install path as our only option. Open sublime and go to `tools > browse packages` and you'll get file explorer of your current OS and time period. Note the directory.
+As far as I know, I havent been accepted to package control yet. That leaves us with the manual install path as our only option. Open sublime and go to `tools > browse packages` and you'll get a file explorer from your current OS and time period. Note the directory.
 
 Once you've done that, head over to the [releases](https://github.com/seanmorris/dotsyntax-sublime/releases) page and grab the lastest one. Extract that file into the directory from before, under a folder named `dotsyntax`. (Make sure your archive manager doesn't end up creating a subfolder with the same name)
 

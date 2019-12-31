@@ -34,8 +34,20 @@ Create a `.syntax` file in the root of your project and add  keys and values in 
 
 ```yaml
 .env:    .sh
-.env.*:  .sh
 .syntax: .yml
+```
+
+You can also specify a relative path. If the relative path of the *file* from the perspective of the *syntaxfile* matches, the match will take precedence over non-patch matches.
+
+```yaml
+.env:           .sh
+templates/.env: .mustache
+.syntax: .yml
+```
+Globbing may also be applied according to python's `fnmatch` rules.
+
+```yaml
+conf/*.cfg: ini
 ```
 
 Please note, this does not cause these files to become `yml` or `bash` files, it only configures the syntax highglighter to ease eye strain, however it will enable filetype specific behavior, such as the comment/ hotkey. Try it out!

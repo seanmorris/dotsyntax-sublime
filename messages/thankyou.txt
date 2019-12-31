@@ -1,0 +1,5 @@
+Thank you for installing dotsyntax!
+
+If you run into any issue, let me know on github:
+
+https://github.com/seanmorris/dotsyntax-sublime/issues

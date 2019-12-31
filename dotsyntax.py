@@ -28,7 +28,7 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 
 		for _view in views:
 			file        = _view.file_name();
-			print('Refreshing ' + file)
+			print('dotsyntax refreshing ' + file)
 			mapped_ext  = self.map_file_extension(file)
 			syntax_file = self.lookup_syntax_file(mapped_ext)
 			_view.settings().set('syntax', syntax_file)

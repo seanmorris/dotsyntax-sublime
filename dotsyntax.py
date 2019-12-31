@@ -29,7 +29,7 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 
 		for _view in views:
 			file        = _view.file_name();
-			print('dotsyntax refreshing ' + file)
+			print('dotsyntax checking ' + file)
 			mapped_ext  = self.map_file_extension(file)
 			syntax_file = self.lookup_syntax_file(mapped_ext)
 			_view.settings().set('syntax', syntax_file)
@@ -46,35 +46,47 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 	
 	def map_file_extension(self, file):
 		
+		filename = os.path.basename(file)
 		dir  = os.path.dirname(file)
 
 		dot_syntax_file = self.find_dotsyntax_file(dir)
 
 		if dot_syntax_file:
+
+			dot_syntax_dir = os.path.dirname(dot_syntax_file)
+			rel_path       = os.path.relpath(file, dot_syntax_dir)
+			# rel_path       = os.path.dirname(rel_path)
 			
 			with open(dot_syntax_file, "r") as handle:
 
-				defs = [i.strip().rpartition(':') for i in handle]
-				match = next((i for i in defs if self.filename_match(file,i)), None)
+				defs = [i.strip().rpartition(':') for i in handle if i.strip()]
+				match = next((i for i in defs if self.filename_match(rel_path,i)), None)
+
+				if not match:
+					match = next((i for i in defs if self.filename_match(filename,i)), None)
 
 				if not match:
 					return None
 
 				*_, extension = match
 
+				extension = extension.strip()
+
+				print("\tmatched " + extension)
+
 				return extension.strip()
 
 	def filename_match(self, file, check):
 
-		filename = os.path.basename(file)
 		*_ ,ext  = os.path.splitext(file)
 		check    = check[0].strip()
 
-		if check in {ext,filename}:
+		if check in {ext,file} or fnmatch.fnmatch(file, check):
 
-			return True
+			print("\tmatched " + check + "\n\t   file " + file)
 
-		return fnmatch.fnmatch(filename, check);
+			return check
+
 
 	def find_dotsyntax_file(self, dir):
 

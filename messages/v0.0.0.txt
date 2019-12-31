@@ -2,7 +2,7 @@ Version Zero. And on the last day of 2019!
 
 The script just ascends the directory tree looking for a .syntax file.
 
-If it finds one, it applies one simple rule: if the filename or extension is an exact/glob match for the value on the left side of the colon, sublime will pretend it has the extension from the right side of the colon. I hope to god it never ends up needing to do more than that. Theres a stupid has in there to make it work despite the default YML lib supplied with python.
+If it finds one, it applies one simple rule: if a file is saved with a filename or extension that is an exact/glob match for the value on the left side of the colon, sublime will pretend it has the extension from the right side of the colon. I hope to god it never ends up needing to do more than that. Theres a stupid has in there to make it work despite the default YML lib supplied with python.
 
 Happy New Year!
 

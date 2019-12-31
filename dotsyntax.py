@@ -29,6 +29,8 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 
 		for _view in views:
 			file        = _view.file_name();
+			if not file:
+				continue
 			print('dotsyntax checking ' + file)
 			mapped_ext  = self.map_file_extension(file)
 			syntax_file = self.lookup_syntax_def_file(mapped_ext)

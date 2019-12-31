@@ -74,7 +74,7 @@ You can open the console with `ctrl ~` on linux or `cmd ~` on osx.
 
 ## Developing / Contributing
 
-If you've installed, you should uninstall it before following this section.
+If you've installed dotsyntax-sumblime, you should uninstall it before following this section.
 
 To develop dotsyntax, simply fork the project and symlink the directory to sublime's user packages directory. Assuming you have the project in `~/dotsyntax-sublime`, on debian linux the command would be:
 
@@ -97,7 +97,7 @@ reloading plugin dotsyntax-dev.dotsyntax
 Once you've done that, run the following command to open a sublime window to the package:
 
 ```
-$ subl ~/dotsyntax-sublime/ 
+$ subl ~/dotsyntax-sublime/
 ```
 
 Once you've got your changes all ready, open a pull request to contribute your work.

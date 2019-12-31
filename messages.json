@@ -1,4 +1,4 @@
 {
-    "install": "messages/install.txt",
+    "install": "messages/thankyou.txt",
     "0.0.0": "messages/0.0.0.txt",
 }

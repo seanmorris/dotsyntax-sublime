@@ -90,8 +90,8 @@ $ rm ~/.config/sublime-text-3/Packages/dotsyntax-dev
 You can ensure the above commands are successful by opening your sublime terminal (`ctrl ~` or `cmd ~`) and looking for the following lines:
 
 ```
-unloading plugin dotsyntax-dev.dotsyntax
 reloading plugin dotsyntax-dev.dotsyntax
+unloading plugin dotsyntax-dev.dotsyntax
 ```
 Once you've done that, run the following command to open a sublime window to the package:
 

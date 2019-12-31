@@ -31,10 +31,10 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 			file        = _view.file_name();
 			print('dotsyntax checking ' + file)
 			mapped_ext  = self.map_file_extension(file)
-			syntax_file = self.lookup_syntax_file(mapped_ext)
+			syntax_file = self.lookup_syntax_def_file(mapped_ext)
 			_view.settings().set('syntax', syntax_file)
 
-	def lookup_syntax_file(self, extension):
+	def lookup_syntax_def_file(self, extension):
 
 		if(len(self.mappings) == 0):
 
@@ -49,9 +49,9 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 		filename = os.path.basename(file)
 		dir  = os.path.dirname(file)
 
-		dot_syntax_file = self.find_dotsyntax_file(dir)
+		dot_syntax_files = self.find_dotsyntax_files(dir)
 
-		if dot_syntax_file:
+		for dot_syntax_file in dot_syntax_files:
 
 			dot_syntax_dir = os.path.dirname(dot_syntax_file)
 			rel_path       = os.path.relpath(file, dot_syntax_dir)
@@ -66,13 +66,14 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 					match = next((i for i in defs if self.filename_match(filename,i)), None)
 
 				if not match:
-					return None
+					continue
 
 				*_, extension = match
 
 				extension = extension.strip()
 
-				print("\t syntax " + extension)
+				print("\t.syntax " + dot_syntax_file)
+				print("\t syntax " + extension + "\n")
 
 				return extension.strip()
 
@@ -88,7 +89,9 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 			return check
 
 
-	def find_dotsyntax_file(self, dir):
+	def find_dotsyntax_files(self, dir):
+
+		files = []
 
 		while dir != '/':
 
@@ -96,9 +99,11 @@ class DotSyntaxCommand(sublime_plugin.EventListener):
 
 			if os.path.exists(syntaxFile):
 
-				return syntaxFile
+				files.append(syntaxFile)
 
 			dir = os.path.abspath(os.path.join(dir, os.pardir))
+
+		return files
 
 	def load_settings(self):
 

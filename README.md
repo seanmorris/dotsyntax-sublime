@@ -18,16 +18,13 @@ A syntaxfile is simple a `key:value` map, where the keys are filenames or extens
 
 As far as I know, I havent been accepted to package control yet. That leaves us with the manual install path as our only option. Open sublime and go to `tools > browse packages` and you'll get a file explorer from your current OS and time period. Note the directory.
 
-Once you've done that, head over to the [releases](https://github.com/seanmorris/dotsyntax-sublime/releases) page and grab the lastest one. Extract that file into the directory from before, under a folder named `dotsyntax`. (Make sure your archive manager doesn't end up creating a subfolder with the same name)
+Once you've done that, head over to the [releases](https://github.com/seanmorris/dotsyntax-sublime/releases) page and grab the lastest one. Extract that file into the directory from before, under a folder named `dotsyntax`  (make sure your archive manager doesn't end up creating a subfolder with the same name).
 
 When you've done the above correctly, you should now see this on your sublime console when saving/loading a file:
 
-```
-```
-
 ## Usage:
 
-Create a `.syntax` file in the root of your project and add  keys and values in the form `filename:type` to get started. Leading/Trailing whitespace will be trimmed for the value. Upon saving, sublime will immediately begin to use whatever syntax highlighter it would normally use for the given file extension.
+Create a `.syntax` file in the root of your project and add  keys and values in the form `filename:type` to get started. Leading/Trailing whitespace will be trimmed for the value. Upon saving, sublime will immediately begin to use whatever syntax highlighter it would normally use for the aliased file extension.
 
 ```yaml
 .env: .sh

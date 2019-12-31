@@ -20,7 +20,11 @@ As far as I know, I havent been accepted to package control yet. That leaves us 
 
 Once you've done that, head over to the [releases](https://github.com/seanmorris/dotsyntax-sublime/releases) page and grab the lastest one. Extract that file into the directory from before, under a folder named `dotsyntax`  (make sure your archive manager doesn't end up creating a subfolder with the same name).
 
-When you've done the above correctly, you should now see this on your sublime console when saving/loading a file:
+When you've done the above correctly, you should now see this on your sublime console whenever you save/load a file:
+
+```
+dotsyntax refreshing /home/sean/dotsyntax/README.md
+```
 
 ## Usage:
 

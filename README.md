@@ -72,6 +72,36 @@ dotsyntax refreshing /home/sean/dotsyntax/README.md
 
 You can open the console with `ctrl ~` on linux or `cmd ~` on osx.
 
+## Developing / Contributing
+
+If you've installed, you should uninstall it before following this section.
+
+To develop dotsyntax, simply fork the project and symlink the directory to sublime's user packages directory. Assuming you have the project in `~/dotsyntax-sublime`, on debian linux the command would be:
+
+```bash
+$ ln -s ~/dotsyntax-sublime/ ~/.config/sublime-text-3/Packages/dotsyntax-dev
+```
+
+You can undo the symlink and remove the development package with:
+
+```bash
+$ rm ~/.config/sublime-text-3/Packages/dotsyntax-dev
+```
+
+You can ensure the above commands are successful by opening your sublime terminal (`ctrl ~` or `cmd ~`) and looking for the following lines:
+
+```
+unloading plugin dotsyntax-dev.dotsyntax
+reloading plugin dotsyntax-dev.dotsyntax
+```
+Once you've done that, run the following command to open a sublime window to the package:
+
+```
+$ subl ~/dotsyntax-sublime/ 
+```
+
+Once you've got your changes all ready, open a pull request to contribute your work.
+
 ## License
 
 ### Copyright 2019 Sean Morris

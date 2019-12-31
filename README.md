@@ -13,16 +13,21 @@ This plugin changes all that. Simply place a `.syntax` file in the root of any p
 
 I'm amazed nothing like this exists already.
 
- For example, the syntaxfile below will cause`.syntax` to be highlighted as if it were a `.yml` file, and the .env file to be renderd like bash.
+For example, the `.syntax` file below will cause`.syntax` to be highlighted as if it were a `.yml` file, and the .env file to be renderd like bash.
 
-syntaxfiles may also appear in subdirectories, and will override those found in parent directories.
+```yaml
+.env:    .sh
+.syntax: .yml
+```
+
+`.syntax` files may also appear in subdirectories, and will override those found in parent directories.
 
 
-## syntaxfile:
+## `.syntax` file:
 
-A syntaxfile is a file named `.syntax` describing the syntax of the files in its directory. It makes up for sitations where file names/extensions won't work.
+A `.syntax` file describs the syntax of the files in its directory. It makes up for sitations where file names/extensions won't work.
 
-A syntaxfile is simple a `key:value` map. The keys are filename, extensions or patterns that specify files the plugin will act on. 
+A `.syntax` file is simple a `key:value` map. The keys are filename, extensions or patterns that specify files the plugin will act on. 
 
 The values are the extensions file types that you want to use. These extensions must include the leading dot.
 
@@ -35,20 +40,21 @@ Create a `.syntax` file in the root of your project and add  keys and values in 
 .syntax: .yml
 ```
 
-You can also specify a relative path. If the relative path of the *file* from the perspective of the *syntaxfile* matches, the match will take precedence over non-patch matches.
+You can also specify a relative path. If the relative path of the *file* from the perspective of the *`.syntax` file* matches, the match will take precedence over non-patch matches.
 
 ```yaml
 .env:           .sh
+.syntax:        .yml
 templates/.env: .mustache
-.syntax: .yml
 ```
 Globbing may also be applied according to python's `fnmatch` rules.
 
 ```yaml
 conf/*.cfg: ini
+conf/*.xfg: yml
 ```
 
-dotsyntax will refrest each file on load/save, and refresh all files in the current window if a syntaxfile is saved.
+dotsyntax will refrest each file on load/save, and refresh all files in the current window if a `.syntax` file is saved.
 
 Please note, this does not cause these files to become `yml` or `bash` files, it only configures the syntax highglighter to ease eye strain, however it will enable filetype specific behavior, such as the comment/ hotkey. Try it out!
 

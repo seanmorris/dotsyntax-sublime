@@ -1,0 +1,2 @@
+.syntax: .yaml
+.env:    .bash

@@ -2,7 +2,6 @@ import sublime_plugin
 import sublime
 import os.path
 import fnmatch
-import yaml
 import io
 import re
 
